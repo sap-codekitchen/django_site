@@ -1,0 +1,5 @@
+django >= 1.5
+markdown >= 2.3
+django-filter >= 0.7
+djangorestframework >= 2.3
+xlutils >= 1.6
