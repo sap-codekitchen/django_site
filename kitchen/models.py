@@ -6,7 +6,6 @@ class Topic(models.Model):
     def __unicode__(self):
         return self.name
 
-
 class Member(models.Model):
     name = models.CharField( max_length=100 )
     program = models.CharField( max_length=150, null=True, blank=True )
@@ -49,4 +48,6 @@ class NewsItem(models.Model):
     author = models.ManyToManyField("Member")
     def __unicode__(self):
         return self.title
+
+
 
