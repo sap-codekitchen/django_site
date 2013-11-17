@@ -19,20 +19,49 @@ from kitchen.models import (
         NewsItem,
         )
 
+from kitchen.serializers import *
+
+from codekitchen.settings import TEMPLATE_DIRS
+
+
+
+def filterByIds(ids, objs, idfield="id"):
+    for obj in objs:
+        if obj[idfield] in ids:
+            yield obj
+
+def linkObject(thing, linkfield, otherset):
+    thing[linkfield] = filterByIds(
+            thing[linkfield],
+            otherset)
+
 def all_objects():
     context = {
-        'topics': Topic.objects.all(),
-        'members': Members.objects.all(),
-        'resources': Resources.objects.all(),
-        'sessions': Session.objects.all(),
-        'newsitems': NewsItem.objects.all(),
-            }
+        'topics': TopicSerializer(
+            Topic.objects.all(), many=True).data,
+        'members': MemberSerializer(
+            Member.objects.all(), many=True).data,
+        'resources': ResourceSerializer(
+            Resource.objects.all(), many=True).data,
+        'sessions': SessionSerializer(
+            Session.objects.all(), many=True).data,
+        'newsitems': NewsItemSerializer(
+            NewsItem.objects.all(), many=True).data,
+    }
+    for member in context['members']:
+        linkObject(member, 'interests', context['topics'])
+        linkObject(member, 'skills', context['topics'])
+    for session in context['sessions']:
+        linkObject(session, 'attendees', context['members'])
+    pprint(context)
     return context
 
 def index(request):
     context = {
             "page_title": "MIT SA+P homepage",
             }
+    context.update(all_objects())
+    pprint(context)
     return render_to_response(
             'index.html',
             RequestContext(request, context),

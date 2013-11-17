@@ -6,8 +6,20 @@
 <body>
 
 <div id="container">
-  <div id="menu"></div>
-  <div id="content"></div>
+  <div id="menu">This might be nice as a menu</div>
+  <div id="content">
+    <ul class="sessions">
+      {% for session in sessions %}
+      {% include "session_list-style.html" %}
+      {% endfor %}
+    </ul>
+    <ul class="memberlist">
+      All the members!
+    {% for member in members %}
+      {% include "member_profile.html" %}
+    {% endfor %}
+    </ul>
+  </div>
 </div>
 
 </body>
