@@ -53,7 +53,6 @@ def all_objects():
         linkObject(member, 'skills', context['topics'])
     for session in context['sessions']:
         linkObject(session, 'attendees', context['members'])
-    pprint(context)
     return context
 
 def index(request):
@@ -61,7 +60,6 @@ def index(request):
             "page_title": "MIT SA+P homepage",
             }
     context.update(all_objects())
-    pprint(context)
     return render_to_response(
             'index.html',
             RequestContext(request, context),
