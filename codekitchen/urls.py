@@ -6,8 +6,12 @@ from django.contrib import admin
 admin.autodiscover()
 
 
-urlpatterns = patterns('',
-    url(r'^$', include('kitchen.urls')),
+urlpatterns = patterns('kitchen.views',
+    url(r'^$', 'index', name='index'),
+    url(r'^resources/$', 'resources', name='resources'),
+)
 
+urlpatterns += patterns('',
     url(r'^admin/', include(admin.site.urls)),
+    #url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 )

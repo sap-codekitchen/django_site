@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% load staticfiles %}
+
+    {% block menu %}
+      <ul class="topiclist">
+      {% for topic in topics %}
+        {% include "topic_listing.html" %}
+      {% endfor %}
+      </ul>
+    {% endblock %}
+    {% block content %}
+      <ul class="resourcelist">
+      {% for resource in resources %}
+        {% include "resource_listing.html" %}
+      {% endfor %}
+      </ul>
+    {% endblock %}
+  </div>
+</div>
+
+</body>
+</html>
+
+
+

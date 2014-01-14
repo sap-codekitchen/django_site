@@ -1,0 +1,36 @@
+<li class="resource">
+
+  <div class="resource-topics">
+    {% for topic in resource.topics %}
+      <div class="topic-tag">
+        <div class="topic-name">
+          {{ topic.name }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="resource-date">
+    {{ resource.date_added }}
+  </div>
+  <div class="resource-name">
+    {{ resource.name }}
+  </div>
+
+  {% if resource.link %}
+  <a href="{{ resource.link }}">
+    link
+  </a>
+  {% endif %}
+
+  <div class="resource-description">
+    {{ resource.description }}
+  </div>
+
+  {% if resource.file %}
+    <a class="resource-file" href="{{ resource.file.url }}">
+      {{ resource.file }}
+    </a>
+  {% endif %}
+</li>
+

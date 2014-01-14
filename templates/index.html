@@ -2,14 +2,23 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>MIT SA+P Code Kitchen</title>
+<title>
+  {% block pagetitle %}
+  MIT SA+P Code Kitchen
+  {% endblock %}
+</title>
     <link rel="stylesheet" href="{% static "css/codekitchen.css" %}" type="text/css">
 </head>
 <body>
 
 <div id="container">
-  <div id="menu">This might be nice as a menu</div>
+  <div id="menu">
+    {% block menu %}
+      This might be nice as a menu
+    {% endblock %}
+  </div>
   <div id="content">
+    {% block content %}
     <ul class="sessions">
       {% for session in sessions %}
       {% include "session_list-style.html" %}
@@ -21,6 +30,8 @@
       {% include "member_profile.html" %}
     {% endfor %}
     </ul>
+    {% endblock %}
+    <!--end container-->
   </div>
 </div>
 

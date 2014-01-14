@@ -55,13 +55,34 @@ def all_objects():
         linkObject(session, 'attendees', context['members'])
     return context
 
+def all_resources():
+    context = {
+        'resources': ResourceSerializer(
+            Resource.objects.all(), many=True).data,
+        'topics': TopicSerializer(
+            Topic.objects.all(), many=True).data,
+            }
+    for resource in context['resources']:
+        linkObject(resource, 'topics', context['topics'])
+    return context
+
 def index(request):
     context = {
-            "page_title": "MIT SA+P homepage",
+            "page_title": "CodeKitchen | MIT SA+P",
             }
     context.update(all_objects())
     return render_to_response(
             'index.html',
+            RequestContext(request, context),
+            )
+
+def resources(request):
+    context = {
+            "page_title": "Resources | CodeKitchen | MIT SA+P",
+            }
+    context.update( all_resources() )
+    return render_to_response(
+            'resources.html',
             RequestContext(request, context),
             )
 
