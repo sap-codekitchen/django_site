@@ -12,7 +12,7 @@ deploy.live:
 	# copy shared private settings to remote temp folder
 	scp ./${appname}/${appname}/shared_private.py ${deployhost}:/webapps/${appname}/tmp/${appname}/${appname}/shared_private.py
 	# copy static to remote
-	scp -r ./${appname}/static ${deployhost}:/webapps/${appname}/static
+	scp -r ./${appname}/static ${deployhost}:/webapps/${appname}/
 	# overwrite existing app with new files from source archive
 	ssh ${deployhost} 'mkdir -p /webapps/${appname}/${appname}/'
 	ssh ${deployhost} 'cp -rf /webapps/${appname}/tmp/* /webapps/${appname}/${appname}/'
