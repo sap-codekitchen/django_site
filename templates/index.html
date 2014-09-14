@@ -1,42 +1,22 @@
-{% load staticfiles %}
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<title>
-  {% block pagetitle %}
-  MIT SA+P Code Kitchen
-  {% endblock %}
-</title>
-    <link rel="stylesheet" href="{% static "css/codekitchen.css" %}" type="text/css">
+  <title>Hello World</title>
+  <meta charset="utf-8" />
+  <link href="/static/css/style.css" rel="stylesheet">
 </head>
 <body>
+  <div id="container">
+    <header>
+      <h1>MIT SA+P CodeKitchen</h1>
+    </header>
+    <div id="body">
+      Hello
+    </div>
+  </div>
 
-<div id="container">
-  <div id="menu">
-    {% block menu %}
-      This might be nice as a menu
-    {% endblock %}
-  </div>
-  <div id="content">
-    {% block content %}
-    <ul class="sessions">
-      {% for session in sessions %}
-      {% include "session_list-style.html" %}
-      {% endfor %}
-    </ul>
-    <ul class="memberlist">
-      All the members!
-    {% for member in members %}
-      {% include "member_profile.html" %}
-    {% endfor %}
-    </ul>
-    {% endblock %}
-    <!--end container-->
-  </div>
-</div>
+  <!--javascript files-->
+  <script type="text/javascript" src="/static/js/main-script.js"></script>
 
 </body>
 </html>
-
-
-
