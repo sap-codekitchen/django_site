@@ -20,12 +20,10 @@ deploy.live:
 	ssh ${deployhost} 'cp /webapps/${appname}/private_settings.py /webapps/${appname}/${appname}/${appname}/${appname}/private_settings.py'
 
 deploy.live.configs:
+	scp ./${appname}/${appname}/private_settings.py ${deployhost}:/webapps/${appname}/private_settings.py
 	scp ./${appname}/${appname}/shared_private.py ${deployhost}:/webapps/${appname}/shared_private.py
 	scp ./${appname}/${appname}/gunicorn_start ${deployhost}:/webapps/${appname}/bin/gunicorn_start
 	scp ./${appname}/${appname}/${appname}.conf ${deployhost}:/webapps/${appname}/${appname}.conf
 	scp ./${appname}/${appname}/${appname}.nginxconf ${deployhost}:/webapps/${appname}/${appname}.nginxconf
-
-deploy.live.configs.private:
-	scp ./${appname}/${appname}/private_settings.py ${deployhost}:/webapps/${appname}/private_settings.py
 
 
