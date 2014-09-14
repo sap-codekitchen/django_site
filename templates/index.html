@@ -1,24 +1,76 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Hello World</title>
-  <meta charset="utf-8" />
-  <link href="/static/css/style.css" rel="stylesheet">
-</head>
-<body>
-  <div id="container">
-    <header>
-      <h1>MIT SA+P CodeKitchen</h1>
-    </header>
-    <div id="body">
-      Hi Sayjel!!!
-      This is a test page to determine if CodeKitchen is running correctly.
-      
-    </div>
-  </div>
+{% extends "base.html" %}
 
-  <!--javascript files-->
-  <script type="text/javascript" src="/static/js/main-script.js"></script>
+{% block content %}
+      <section>
 
-</body>
-</html>
+        <h2>What is Code Kitchen?</h2>
+
+        <p>
+        We are a student group in MIT's School of Architecture and
+        Planning. Our mission is to improve digital literacy in environmental
+        design and planning by encouraging students to share skills with each
+        other. We aim to create a welcoming space for beginners. We believe
+        that everyone has the capacity to be both a beginner and a teacher.
+        </p>
+
+        <p>
+         Over the past academic year,
+        we held weekly informal meetups for architecture and planning
+        students to discuss and learn about code. At these meetups, students
+        learned how to build and design websites, how to write software and
+        simple scripts, and built interfaces for generative art or 3D
+        modeling. Students taught and learned HTML, CSS, Javascript,
+        Python, Processing, C++, and Java.
+        </p>
+
+        <p>
+        Please join our mailing list for updates on our launch and
+        activities for the 2014-2015 academic year. 
+        <a href="mailto:bgolder@mit.edu">Email us and we'll add you to the
+          mailing list.</a>
+        </p>
+
+
+        <h2>Who are we?</h2>
+
+        <p>
+        In addition to the many students and volunteers who have attended
+        sessions, we have a core group of 3 graduate students: 
+        <a href="mailto:afb@mit.edu">Allegra Fonda-Bonardi</a>, 
+        <a href="mailto:svpatel@mit.edu">Sayjel Patel</a>, 
+        and 
+        <a href="mailto:bgolder@mit.edu">Ben Golder</a>. 
+        </p>
+
+        <h2>We are rethinking the goals of Code Kitchen</h2>
+
+        <p>
+        We are currently in the process of rethinking Code Kitchen's mission
+        and activities to provide something more valuable to MIT and the broader
+        community. As the academic year begins, we welcome your input and
+        ideas. We are looking for people who can lend a hand or lead the effort
+        (no programming experience is required to help run Code Kitchen).
+        </p>
+
+        <h2>We want to hear from you</h2>
+
+        <p>
+        If you're interested in any way, or you have feedback, questions, or
+        criticisms, we'd love to hear from you. If you'd
+        like to join our mailing list, just let us know with a quick email:
+        <br>
+
+          <a href="mailto:afb@mit.edu"> 
+            <i class="fa fa-envelope-o fa-lg"></i>
+            Allegra</a>,
+          <a href="mailto:svpatel@mit.edu"> 
+            <i class="fa fa-envelope-o fa-lg"></i>
+            Sayjel</a>,
+          <a href="mailto:bgolder@mit.edu">
+            <i class="fa fa-envelope-o fa-lg"></i>
+            Ben</a>
+        </p>
+
+      </section>
+  
+{% endblock content %}

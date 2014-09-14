@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en-us">
+
+{% include "head.html" %}
+
+{% if pageclass %}
+<body class="{{pageclass}}">
+{% else %}
+<body>
+{% endif %}
+  <div id="container">
+    {% include "header.html" %}
+    <div id="content">
+      {% block content %}
+      <h2>Placeholder</h2>
+      {% endblock content %}
+    </div>
+  </div>
+  {% block jsfiles %}
+  <script src="/static/js/main-script.js"></script>
+  {% endblock jsfiles %}
+</body>
+
+</html>

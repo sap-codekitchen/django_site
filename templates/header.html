@@ -1,0 +1,32 @@
+<header>
+  {% block header %}
+
+    {% block titleblock %}
+      <h1 class="titleblock">
+        <span class="institution"> MIT SA+P </span>
+        <span class="org"> C<i class="fa fa-spoon fa-lg"></i>de Kitchen </span>
+        {% if linktrail %}
+        {% for link in linktrail %}
+        <span class="trail-item">
+          /
+          <a href="{{link.url}}">{{link.text}}</a>
+        </span>
+        {% endfor %}
+        {% endif %}
+      </h1>
+    {% endblock titleblock %}
+
+    {% block navigation %}
+      <nav class="main-nav">
+        {% if navlinks %}
+        {% for link in navlinks %}
+          <li.nav-item>
+            <a href="{{link.url}}">{{link.text}}</a>
+          </li>
+        {% endfor %}
+        {% endif %}
+      </nav>
+    {% endblock navigation %}
+
+  {% endblock header %}
+</header>

@@ -1,9 +1,31 @@
-html, body {
-  margin: 0; padding: 0;
+html {
+  font-size: 100%;
+  font-family: "Merriweather", Georgia, serif;
+  font-weight: 300;
+  /*font-family: 'Source Sans Pro', 'Helvetica', Arial, sans-serif;*/
+  color: #555;
 }
 
-#container { margin: 0 auto; width: 40rem; 
-  font-family: "Roboto";
-}
+html, body { margin: 0; padding: 0; }
+
+#container { margin: 0 auto; max-width: 32rem; padding: 1rem 1rem 5rem 1rem; }
+
+h1, h2, h3, h4 { font-family: "Source Sans Pro", Helvetica, sans-serif; 
+  font-weight: 300; color: #000; }
+
+header h1 { border-bottom: 2px solid #000; padding-bottom: 2rem; font-weight: 200; }
+header h1 .org { font-weight: 600; }
+header h1 i.fa-spoon { position: relative; top: 0.8rem; }
+header p { font-style: italic; }
+
+p, ul { line-height: 1.8rem; }
+
+ul { list-style-type: none; padding: 0 1rem; }
+
+.thin { font-weight: 100; }
+
+/*a { color: #009dad; text-decoration: none; }*/
+a { color: #000; text-decoration: none; font-weight: 400; }
+a:hover { color: #009dad; }
 
 
