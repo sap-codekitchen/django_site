@@ -25,8 +25,5 @@ deploy.live.config.initial:
 
 deploy.live.config:
 	scp ${local_config_dir}/shared_private.py ${host_config_dir}/shared_private.py
-	scp ${local_config_dir}/gunicorn_start ${host_config_dir}/bin/gunicorn_start
-	scp ${local_config_dir}/${appname}.conf ${host_config_dir}/${appname}.conf
-	scp ${local_config_dir}/${appname}.nginxconf ${host_config_dir}/${appname}.nginxconf
 
 
