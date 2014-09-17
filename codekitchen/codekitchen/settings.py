@@ -3,6 +3,7 @@ from private_settings import (
     TEMPLATE_DEBUG,
     ALLOWED_HOSTS,
     DATABASES,
+    STATIC_URL,
         )
 
 from shared_private import (
@@ -21,7 +22,6 @@ from shared_settings import (
     USE_I18N,
     USE_L10N,
     USE_TZ,
-    STATIC_URL,
     STATICFILES_DIRS,
     TEMPLATE_DIRS,
     STATIC_ROOT,
