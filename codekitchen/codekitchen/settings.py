@@ -2,11 +2,11 @@ from private_settings import (
     DEBUG,
     TEMPLATE_DEBUG,
     ALLOWED_HOSTS,
+    DATABASES,
         )
 
 from shared_private import (
     SECRET_KEY,
-    DATABASES,
         )
 
 from shared_settings import (

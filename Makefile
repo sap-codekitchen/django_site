@@ -1,3 +1,5 @@
+include _make/paths.mk
+
 run:
 	python ./codekitchen/manage.py runserver
 

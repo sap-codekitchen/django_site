@@ -1,29 +1,32 @@
-# make commands to run locally in order to deploy to servers
-deployhost = codekitchen
-appname = codekitchen
 
 deploy.live:
 	# this is used for full deployment
 	make pre-deploy
 	# copy the source archive to remote
-	scp -r ./versions/latest.zip ${deployhost}:/webapps/${appname}/latest.zip
+	scp -r ./versions/latest.zip ${host_env}/latest.zip
 	# unzip the source archive into temp folder
-	ssh ${deployhost} 'unzip -o /webapps/${appname}/latest.zip -d /webapps/${appname}/tmp'
-	# copy shared private settings to remote temp folder
-	scp ./${appname}/${appname}/shared_private.py ${deployhost}:/webapps/${appname}/tmp/${appname}/${appname}/shared_private.py
+	ssh ${host} 'unzip -o ${remote_env}/latest.zip -d ${remote_staging}'
 	# copy static to remote
-	scp -r ./${appname}/static ${deployhost}:/webapps/${appname}/
-	# overwrite existing app with new files from source archive
-	ssh ${deployhost} 'mkdir -p /webapps/${appname}/${appname}/'
-	ssh ${deployhost} 'cp -rf /webapps/${appname}/tmp/* /webapps/${appname}/${appname}/'
+	scp -r ${local_static} ${host_static_parent}
+	# overwrite existing repo directory with new files from source archive
+	ssh ${host} 'mkdir -p ${remote_repo}/'
+	ssh ${host} 'cp -rf ${remote_staging}/* ${remote_repo}/'
+	# copy shared private settings to remote temp folder
+	scp ./${config_dir}/shared_private.py ${host_config_dir}/shared_private.py
 	# finally, copy the private settings into the appropriate location
-	ssh ${deployhost} 'cp /webapps/${appname}/private_settings.py /webapps/${appname}/${appname}/${appname}/${appname}/private_settings.py'
+	ssh ${host} 'cp ${remote_env}/private_settings.py ${remote_config_dir}/private_settings.py'
 
-deploy.live.configs:
-	scp ./${appname}/${appname}/private_settings.py ${deployhost}:/webapps/${appname}/private_settings.py
-	scp ./${appname}/${appname}/shared_private.py ${deployhost}:/webapps/${appname}/shared_private.py
-	scp ./${appname}/${appname}/gunicorn_start ${deployhost}:/webapps/${appname}/bin/gunicorn_start
-	scp ./${appname}/${appname}/${appname}.conf ${deployhost}:/webapps/${appname}/${appname}.conf
-	scp ./${appname}/${appname}/${appname}.nginxconf ${deployhost}:/webapps/${appname}/${appname}.nginxconf
+deploy.live.private:
+	scp ${local_config_dir}/private_settings.py ${host_env}/private_settings.py
+
+deploy.live.config.initial:
+	scp ${local_config_dir}/private_settings.py ${host_env}/private_settings.py
+	make deploy.live.config
+
+deploy.live.config:
+	scp ${local_config_dir}/shared_private.py ${host_config_dir}/shared_private.py
+	scp ${local_config_dir}/gunicorn_start ${host_config_dir}/bin/gunicorn_start
+	scp ${local_config_dir}/${appname}.conf ${host_config_dir}/${appname}.conf
+	scp ${local_config_dir}/${appname}.nginxconf ${host_config_dir}/${appname}.nginxconf
 
 
