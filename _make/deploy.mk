@@ -11,19 +11,9 @@ deploy.live:
 	# overwrite existing repo directory with new files from source archive
 	ssh ${host} 'mkdir -p ${remote_repo}/'
 	ssh ${host} 'cp -rf ${remote_staging}/* ${remote_repo}/'
-	# copy shared private settings to remote temp folder
+	# copy private settings to appropriate location
 	scp ./${config_dir}/shared_private.py ${host_config_dir}/shared_private.py
-	# finally, copy the private settings into the appropriate location
-	ssh ${host} 'cp ${remote_env}/private_settings.py ${remote_config_dir}/private_settings.py'
+	scp ./${config_dir}/private_settings_server.py ${host_config_dir}/private_settings.py
 
-deploy.live.private:
-	scp ${local_config_dir}/private_settings.py ${host_env}/private_settings.py
-
-deploy.live.config.initial:
-	scp ${local_config_dir}/private_settings.py ${host_env}/private_settings.py
-	make deploy.live.config
-
-deploy.live.config:
-	scp ${local_config_dir}/shared_private.py ${host_config_dir}/shared_private.py
 
 
