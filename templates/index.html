@@ -1,56 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
-      <section>
 
-        <h2>What is CodeKitchen?</h2>
+<section id="about">
 
-        <p>
-        We are a student group in MIT's School of Architecture and
-        Planning. Our mission is to improve digital literacy in environmental
-        design and planning by encouraging students to share skills with each
-        other. We aim to create a welcoming space for beginners. We believe
-        that everyone has the capacity to be both a beginner and a teacher.
-        </p>
+<p>
+MIT CodeKitchen is a student group at 
+<a href="http://mit.edu/">MIT</a>'s 
+<a href="http://sap.mit.edu/">School of Architecture and Planning</a>
+. Our mission is to improve code literacy in architecture and planning. We do this in three ways: informal tutoring sessions, invited lectures, and an online catalogue of resources.
+</p>
 
-        <p>
-         Over the past academic year,
-        we held weekly informal meetups for architecture and planning
-        students to discuss and learn about code. At these meetups, students
-        learned how to build and design websites, how to write software and
-        simple scripts, and built interfaces for generative art or 3D
-        modeling. Students taught and learned HTML, CSS, Javascript,
-        Python, Processing, C++, and Java.
-        </p>
+<p>
+Every other week, our “<a href="#kitchens">Kitchens</a>” provide an informal, beginner-friendly tutoring lab where students cook up projects and discussions. We encourage students to learn through teaching and to seek out help from their peers. We believe that everyone can be both a beginner and a teacher. Kitchens are preceded by lectures designed to spark debate about the role of software and technical expertise in architecture and planning.
+</p>
+
+<p>
+In addition to tutoring and lectures, we curate an online catalogue of events, workshops, tutorials, online courses, articles, and fellowships related to the rapidly changing use of digital tools in architecture and planning.
+</p>
 
         <p>
-        Please join our mailing list for updates on our launch and
+        Please join our mailing list for updates on our 
         activities for the 2014-2015 academic year. 
         <a href="mailto:bgolder@mit.edu">Email us and we'll add you to the
           mailing list.</a>
         </p>
+</section>
 
+        {% include "schedule.html" %}
 
-        <h2>Who are we?</h2>
-
-        <p>
-        In addition to the many students and volunteers who have attended
-        sessions, we have a core group of 3 graduate students: 
-        <a href="mailto:afb@mit.edu">Allegra Fonda-Bonardi</a>, 
-        <a href="mailto:svpatel@mit.edu">Sayjel Patel</a>, 
-        and 
-        <a href="mailto:bgolder@mit.edu">Ben Golder</a>. 
-        </p>
-
-        <h2>We are rethinking the goals of CodeKitchen</h2>
-
-        <p>
-        We are currently in the process of rethinking CodeKitchen's mission
-        and activities to provide something more valuable to MIT and the broader
-        community. As the academic year begins, we welcome your input and
-        ideas. We are looking for people who can lend a hand or lead the effort
-        (no programming experience is required to help run CodeKitchen).
-        </p>
+        <section id="contact">
 
         <h2>We want to hear from you</h2>
 
@@ -70,7 +49,8 @@
             <i class="fa fa-envelope-o fa-lg"></i>
             Ben</a>
         </p>
+        
+        </section>
 
-      </section>
   
 {% endblock content %}
