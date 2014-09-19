@@ -6,6 +6,7 @@ remote_env = ${appname}
 host_env = ${host}:${remote_env}
 host_staging = ${host_env}/tmp
 remote_staging = ${remote_env}/tmp
+
 local_static = ./${appname}/static
 host_static_parent = ${host_env}/www/
 host_static = ${host_env}/www/static
