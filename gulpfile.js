@@ -1,4 +1,5 @@
 var gulp        = require('gulp'),
+    concat      = require('gulp-concat'),
     gutil       = require('gulp-util'),
     less        = require('gulp-less');
 
@@ -9,7 +10,6 @@ var gulp        = require('gulp'),
 var lessFiles = [ './front/less/**/*.less' ];
 var lessEntryFiles = [ './front/less/**/*-entry.less' ];
 
-
 // LESS CSS preprocessor
 gulp.task('less', function(){
 	return gulp.src(lessEntryFiles)
@@ -18,13 +18,31 @@ gulp.task('less', function(){
 		.pipe(gulp.dest('./static/css/'))
 });
 
+vendorEntryFiles = [
+				'./node_modules/jquery/dist/jquery.min.js',
+				'./node_modules/bootstrap/dist/js/bootstrap.min.js',
+				]
+
+// Bootstrap and any other js libraries
+gulp.task('vendor', function(){
+	return gulp.src(vendorEntryFiles)
+		.pipe(concat('vendor.js'))
+		.pipe(gulp.dest('./static/js/'));
+});
+
+gulp.task('glyphicons', function(){
+	return gulp.src('./node_modules/bootstrap/fonts/*')
+		.pipe(gulp.dest('./static/fonts/'));
+});
+
 gulp.task('watch', function(){
 	gulp.watch(lessFiles, ['less']);
 });
 
+
 // Default Task
-gulp.task('default', ['less', 'watch']);
-gulp.task('build', ['less']);
+gulp.task('build', ['less', 'vendor', 'glyphicons']);
+gulp.task('default', ['build', 'watch']);
 
 
 
