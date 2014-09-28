@@ -1,0 +1,40 @@
+@sans: "Source Sans Pro", Helvetica, sans-serif;
+@serif: "Merriweather", Georgia, serif;
+
+@em: 1rem;
+@vu: @em * 1.8;
+
+/* Font Weights
+Source Sans 200 300 400 600 700 900
+     Italic 200 300     600 700 900 
+
+Merriweather 300 400 700 900
+      Italic 300 400 700 900 */
+
+.hairline { font-weight: 200; }
+.thin { font-weight: 300; }
+.semibold { font-weight: 400; }
+.bold { font-weight: 700; }
+.black { font-weight: 900; }
+
+.sans { font-family: @sans; }
+.serif { font-family: @serif; }
+
+.upper { text-transform: uppercase; }
+.lower { text-transform: lowercase; }
+
+.bodyfont {
+    .serif;
+    font-size: @em;
+    color: @black;
+    .thin;
+}
+
+.header {
+    .sans;
+    .thin;
+    color: @black;
+}
+
+a { color: @link; text-decoration: none; .semibold; }
+a:hover { color: @linkhover; }
