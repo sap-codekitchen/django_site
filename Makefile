@@ -30,4 +30,5 @@ pre-deploy:
 
 include _make/deploy.mk
 include _make/server.mk
+include _make/test.mk
 

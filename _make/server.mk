@@ -6,9 +6,8 @@ server.install:
     pip install \
         -r requirements.txt \
         -t ${python_install_dir} \
-        --install-options="--install-scripts=${python_bin_dir}"
+        --install-option="--install-scripts=${python_bin_dir}"
 
 server.logs:
 	ssh -k ${appname}@scripts.mit.edu 'logview'
-
 
