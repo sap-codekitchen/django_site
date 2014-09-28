@@ -20,20 +20,22 @@ Merriweather 300 400 700 900
 .sans { font-family: @sans; }
 .serif { font-family: @serif; }
 
+.italic { font-style: italic; }
+
 .upper { text-transform: uppercase; }
 .lower { text-transform: lowercase; }
 
 .bodyfont {
     .serif;
     font-size: @em;
-    color: @black;
+    color: @text;
     .thin;
 }
 
 .header {
     .sans;
     .thin;
-    color: @black;
+    color: @text;
 }
 
 a { color: @link; text-decoration: none; .semibold; }

@@ -13,7 +13,7 @@ html, body { margin: 0; padding: 0; }
 
 h1, h2, h3, h4, table { .header; }
 
-header h1 { border-bottom: 2px solid #000; padding-bottom: 1rem; font-weight: 200; }
+header h1 { border-bottom: 2px solid @ramp5; padding-bottom: 1rem; font-weight: 200; }
 header h1 .org { .black; }
 
 p, ul { line-height: @vu; }
@@ -24,7 +24,7 @@ a { color: @link; text-decoration: none; .semibold; }
 a:hover { color: @linkhover; }
 
 section { 
-  border-top: 2px solid #555; 
+  border-top: 2px solid @ramp6; 
   margin-top: 2rem; 
   padding-top: 0.5rem;
 }
@@ -40,15 +40,15 @@ table { border-collapse: collapse;
 }
 .schedule { font-size: 1.2rem; }
 .schedule tr {
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid @ramp7;
 }
 .schedule tr:last-child {
   border: none;
 }
-.head { color: #888; font-size: 1rem; text-transform: uppercase;}
-.note { font-style: italic; 
-  font-family: "Source Sans Pro", Helvetica, sans-serif; 
-  color: #000;
+.head { color: @ramp5; font-size: 1rem; .upper; }
+.note { .italic;
+  font-family: @sans;
+  color: @ramp3;
 }
 .key-info { font-weight: 600; }
 td { 
@@ -56,9 +56,9 @@ td {
   padding-bottom: 1rem;
   padding-right: 0.6rem; 
 }
-.date-month { font-size: 1rem; text-transform: uppercase; }
+.date-month { font-size: @em; .upper }
 .date-number { 
-  font-weight: 600;
+    .bold;
 }
 
 
