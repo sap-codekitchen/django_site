@@ -3,13 +3,15 @@
 
     {% block titleblock %}
       <h1 class="titleblock">
-        <span class="institution"> MIT SA+P </span>
-        <span class="org"> CodeKitchen </span>
+        <a href="{% url "home" %}">
+          <span class="institution"> MIT SA+P </span>
+          <span class="org"> CodeKitchen </span>
+        </a>
 
         {% if linktrail %}
         {% for link in linktrail %}
         <span class="trail-item">
-          /
+          <span class="trail-sep">/</span>
           <a href="{{link.url}}">{{link.text}}</a>
         </span>
         {% endfor %}
@@ -20,12 +22,24 @@
     {% block navigation %}
       <nav class="main-nav">
         {% if navlinks %}
-        {% for link in navlinks %}
-          <li.nav-item>
-            <a href="{{link.url}}">{{link.text}}</a>
-          </li>
-        {% endfor %}
-        {% endif %}
+        <ul>
+          {% for link in navlinks %}
+            <a href="{{link.url}}">
+            <li class="nav-item">
+              {{link.text}}
+            </li></a>
+          {% endfor %}
+          {% endif %}
+          {% if not user.is_authenticated %}
+            <a href="{% url "login" %}">
+              <li class="nav-item">login</li>
+            </a>
+          {% else %}
+            <a href="{% url "logout" %}">
+              <li class="nav-item">logout</li>
+            </a>
+          {% endif %}
+        </ul>
       </nav>
     {% endblock navigation %}
 

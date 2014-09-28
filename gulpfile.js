@@ -18,9 +18,12 @@ gulp.task('less', function(){
 		.pipe(gulp.dest('./static/css/'))
 });
 
+gulp.task('watch', function(){
+	gulp.watch(lessFiles, ['less']);
+});
 
 // Default Task
-gulp.task('default', ['less']);
+gulp.task('default', ['less', 'watch']);
 gulp.task('build', ['less']);
 
 

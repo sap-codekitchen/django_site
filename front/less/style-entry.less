@@ -11,22 +11,61 @@ html, body { margin: 0; padding: 0; }
 
 #container { margin: 0 auto; max-width: @em * 32; padding: 1rem 1rem 5rem 1rem; }
 
-h1, h2, h3, h4, table { .header; }
+h1, h2, h3, h4, table { .header; .clear; }
 
-header h1 { border-bottom: 2px solid @ramp5; padding-bottom: 1rem; font-weight: 200; }
+header h1 { 
+    .big;
+    a { .hairline; color: @text; &:hover {
+            color: @ramp3;
+    }}
+    padding-bottom: @vu * .25;
+    .trail-sep {
+        color: @ramp5;
+    }
+}
+.home {
+    header h1 { .double; padding-bottom: @vu * .25; }
+}
 header h1 .org { .black; }
 
-p, ul { line-height: @vu; }
+.main-nav {
+    .upper; .hairline; .sans; .small;
+    margin-bottom: @vu * .25;
+    ul { 
+        .clear;
+        display: table;
+        width: 100%;
+        padding: 0; 
+        table-layout: fixed;
+        list-style-type: none;
+    }
+    li.nav-item {
+        background-color: @text;
+        border-right: 1px solid @back;
+        &:hover {
+            background-color: @ramp3;
+        }
+    }
+    a { 
+        display: table-cell;
+        text-align: center;
+        .hairline;
+        color: @back;
+        &:hover {
+            color: @back;
+        }
+    }
+}
 
-ul { list-style-type: none; padding: 0 1rem; }
+p, ul { line-height: @vu; }
 
 a { color: @link; text-decoration: none; .semibold; }
 a:hover { color: @linkhover; }
 
 section { 
   border-top: 2px solid @ramp6; 
-  margin-top: 2rem; 
-  padding-top: 0.5rem;
+  margin-top: @vu * 1.5; 
+  padding-top: @vu * .5;
 }
 
 section:first-child {

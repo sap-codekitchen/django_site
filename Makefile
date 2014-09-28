@@ -3,6 +3,10 @@ include _make/paths.mk
 run:
 	python ./codekitchen/manage.py runserver
 
+run.live:
+	# make run.live ip=18.111.62.202
+	python ./codekitchen/manage.py runserver $(ip)
+
 clean:
 	# this command removes all compiled python files
 	# and files created by javascript development
