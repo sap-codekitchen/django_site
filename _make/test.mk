@@ -6,3 +6,7 @@ test.sync:
 
 test.destroy:
 	rm -rf ./codekitchen/db.sqlite3
+
+test.rebuild:
+	make test.destroy
+	make test.sync

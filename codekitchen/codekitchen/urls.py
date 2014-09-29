@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.views.generic import TemplateView
 from django.contrib import admin
 from .viewclasses import NamedView
+from .auth_views import login
 
 """
 Login --> see your home page
@@ -26,7 +27,7 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('',
-    url(r'^login/$', 'django.contrib.auth.views.login', name="login"),
+    url(r'^login/$', login, name="login",),
     url(r'^logout/$', 'django.contrib.auth.views.logout', name="logout"),
     url(r'^password_reset/$', 'django.contrib.auth.views.password_reset'),
     url(r'^password_change/$', 'django.contrib.auth.views.password_change'),

@@ -1,2 +1,0 @@
-from .viewclasses import NamedView
-

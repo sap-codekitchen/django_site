@@ -1,5 +1,3 @@
-from django.http import Http404
-from django.template import RequestContext
 from django.shortcuts import render
 from django.core.urlresolvers import reverse
 

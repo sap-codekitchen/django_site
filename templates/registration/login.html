@@ -7,19 +7,15 @@
 
 {% block content %}
 
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
-
 <form method="post" action="{% url 'login' %}" role="form">
 {% csrf_token %}
 <div class="form-group">
-  <label for="id_username">Username</label>
-  <input type="username" class="form-control" id="id_username" placeholder="Your Username">
+  <label for="id_email">Email</label>
+  <input type="email" name="email" class="form-control" id="id_email" placeholder="Your Email">
 </div>
 <div class="form-group">
   <label for="id_password">Password</label>
-  <input type="password" class="form-control" id="id_password" placeholder="Password">
+  <input type="password" name="password" class="form-control" id="id_password" placeholder="Password">
 </div>
 
 <button type="submit" class="btn btn-default">Login</button>
