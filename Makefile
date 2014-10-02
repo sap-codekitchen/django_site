@@ -1,11 +1,11 @@
 include _make/paths.mk
 
 run:
-	python ./codekitchen/manage.py runserver
+	python ./codekitchen/manage.py runserver & gulp
 
 run.live:
 	# make run.live ip=18.111.62.202
-	python ./codekitchen/manage.py runserver $(ip)
+	python ./codekitchen/manage.py runserver $(ip) && gulp
 
 clean:
 	# this command removes all compiled python files

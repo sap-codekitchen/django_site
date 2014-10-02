@@ -21,15 +21,26 @@ urlpatterns = patterns('',
     url(r'^$', NamedView('home'), name='home'),
     url(r'^blog/$', NamedView('blog'), name='blog'),
     url(r'^events/$', NamedView('events'), name='events'),
+    url(r'^events/(?P<event_id>\d+)/$', NamedView('events'), name='event_by_id'),
+
     url(r'^resources/$', NamedView('resources'), name='resources'),
+
+    # these are pages used for testing things
+    url(r'^components/$', NamedView('components'), name='components'),
 
     url(r'^admin/', include(admin.site.urls)),
 )
 
 urlpatterns += patterns('',
     url(r'^login/$', login, name="login",),
-    url(r'^logout/$', 'django.contrib.auth.views.logout', name="logout"),
-    url(r'^password_reset/$', 'django.contrib.auth.views.password_reset'),
-    url(r'^password_change/$', 'django.contrib.auth.views.password_change'),
+    url(r'^logout/$',
+        'django.contrib.auth.views.logout',
+        name="logout"),
+    url(r'^password_reset/$',
+        'django.contrib.auth.views.password_reset',
+        name="password_reset"),
+    url(r'^password_change/$',
+        'django.contrib.auth.views.password_change'
+        ),
     url(r'^password_change_done/$', 'django.contrib.auth.views.password_change_done'),
 )

@@ -23,7 +23,7 @@ class NamedView():
         self.context['pageclass'] = name
         self.context.update(context)
 
-    def __call__(self, request):
+    def __call__(self, request, *args, **kwargs):
         self.add_navlinks()
         return render( request, self.template, self.context)
 
