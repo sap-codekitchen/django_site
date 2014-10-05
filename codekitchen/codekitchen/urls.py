@@ -24,6 +24,7 @@ urlpatterns = patterns('',
     url(r'^events/(?P<event_id>\d+)/$', NamedView('events'), name='event_by_id'),
 
     url(r'^resources/$', NamedView('resources'), name='resources'),
+    url(r'^tutorials/$', NamedView('tutorials'), name='tutorials'),
 
     # these are pages used for testing things
     url(r'^components/$', NamedView('components'), name='components'),
