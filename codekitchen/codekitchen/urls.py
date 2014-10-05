@@ -32,6 +32,9 @@ urlpatterns = patterns('',
     # these are pages used for testing things
     url(r'^components/$', NamedView('components'), name='components'),
 
+    # a guide to text editors
+    url(r'^editors/$', NamedView('editors'), name='editors'),
+
     url(r'^admin/', include(admin.site.urls)),
 )
 
