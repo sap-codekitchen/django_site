@@ -20,11 +20,14 @@ r'^password_change_done/$'
 urlpatterns = patterns('',
     url(r'^$', NamedView('home'), name='home'),
     url(r'^blog/$', NamedView('blog'), name='blog'),
+
     url(r'^events/$', NamedView('events'), name='events'),
     url(r'^events/(?P<event_id>\d+)/$', NamedView('events'), name='event_by_id'),
 
-    url(r'^resources/$', NamedView('resources'), name='resources'),
     url(r'^tutorials/$', NamedView('tutorials'), name='tutorials'),
+    url(r'^tutorials/(?P<tutorial_id>\d+)/$', NamedView('tutorials'), name='tutorial_by_id'),
+
+    url(r'^resources/$', NamedView('resources'), name='resources'),
 
     # these are pages used for testing things
     url(r'^components/$', NamedView('components'), name='components'),
