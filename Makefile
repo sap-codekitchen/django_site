@@ -5,7 +5,7 @@ run:
 
 run.live:
 	# make run.live ip=18.111.62.202
-	python ./codekitchen/manage.py runserver $(ip) && gulp
+	python ./codekitchen/manage.py runserver $(ip) & gulp
 
 clean:
 	# this command removes all compiled python files
@@ -16,6 +16,7 @@ install:
 	# this command installs all python and javascript packages required for
 	# development
 	pip install -r ./requirements.txt
+	npm install
 
 build:
 	python ./codekitchen/manage.py collectstatic --noinput
