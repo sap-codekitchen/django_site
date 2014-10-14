@@ -18,6 +18,10 @@ install:
 	pip install -r ./requirements.txt
 	npm install
 
+script:
+	# run a script
+	python ./codekitchen/manage.py runscript $(run)
+
 build:
 	python ./codekitchen/manage.py collectstatic --noinput
 
@@ -29,6 +33,7 @@ pre-deploy:
 	make bundle
 
 
+include _make/db.mk
 include _make/deploy.mk
 include _make/server.mk
 include _make/test.mk
