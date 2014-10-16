@@ -37,6 +37,14 @@
     <header>
       {% block header %}
 
+      {% block usertag %}
+      {% if user.is_authenticated %}
+      <div class="usertag">
+        Logged in as <span class="userlink">{{user.username}}</span>
+      </div>
+      {% endif %}
+      {% endblock usertag %}
+
         {% block titleblock %}
           <h1 class="titleblock">
             <a href="{% url "home" %}">

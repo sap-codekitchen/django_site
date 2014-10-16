@@ -4,6 +4,12 @@ from private_settings import (
     ALLOWED_HOSTS,
     DATABASES,
     STATIC_URL,
+    EMAIL_BACKEND,
+    EMAIL_HOST,
+    EMAIL_PORT,
+    EMAIL_HOST_USER,
+    EMAIL_HOST_PASSWORD,
+    EMAIL_PREFIX,
         )
 
 from shared_private import (
