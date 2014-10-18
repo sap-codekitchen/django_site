@@ -2,6 +2,7 @@ from private_settings import (
     DEBUG,
     TEMPLATE_DEBUG,
     ALLOWED_HOSTS,
+    AUTH_ROOT_URL,
     DATABASES,
     STATIC_URL,
     EMAIL_BACKEND,
