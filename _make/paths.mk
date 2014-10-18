@@ -8,8 +8,8 @@ host_staging = ${host_env}/tmp
 remote_staging = ${remote_env}/tmp
 
 local_static = ./${appname}/static
-host_static_parent = ${host_env}/www/
-host_static = ${host_env}/www/static
+host_static_parent = ${host_env}/web_scripts/
+host_static = ${host_env}/web_scripts/static
 
 remote_repo = ${remote_env}/Scripts/django
 host_repo = ${host}:${remote_repo}
