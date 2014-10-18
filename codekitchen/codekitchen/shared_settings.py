@@ -21,7 +21,6 @@ MIDDLEWARE_CLASSES = (
 )
 
 
-LOGIN_REDIRECT_URL = '/'
 ROOT_URLCONF = 'codekitchen.urls'
 
 WSGI_APPLICATION = 'codekitchen.wsgi.application'
@@ -47,4 +46,31 @@ TEMPLATE_DIRS = (
 # before deployment.
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(REPO_DIR, 'logs', 'django-debug.log'),
+            'formatter':'verbose',
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+}

@@ -4,6 +4,7 @@ from private_settings import (
     ALLOWED_HOSTS,
     ROOT_URL,
     AUTH_ROOT_URL,
+    LOGIN_REDIRECT_URL,
     DATABASES,
     STATIC_URL,
     EMAIL_BACKEND,
@@ -13,6 +14,7 @@ from private_settings import (
     EMAIL_HOST_PASSWORD,
     EMAIL_PREFIX,
     SESSION_COOKIE_DOMAIN,
+    LOGGING,
         )
 
 from shared_private import (
@@ -24,7 +26,6 @@ from shared_settings import (
     REPO_DIR,
     INSTALLED_APPS,
     MIDDLEWARE_CLASSES,
-    LOGIN_REDIRECT_URL,
     ROOT_URLCONF,
     WSGI_APPLICATION,
     LANGUAGE_CODE,
