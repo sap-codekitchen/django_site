@@ -1,15 +1,18 @@
 <form method="post" action="{% url 'login' %}" role="form">
 {% csrf_token %}
+<p>Login to the CodeKitchen Website</p>
 <div class="form-group">
+  {{ form.username.errors }}
   <label for="id_email">Email</label>
   <input type="email" name="email" class="form-control" id="id_email" placeholder="Your Email">
 </div>
 <div class="form-group">
+  {{ form.password.errors }}
   <label for="id_password">Password</label>
   <input type="password" name="password" class="form-control" id="id_password" placeholder="Password">
 </div>
 
 <button type="submit" class="btn btn-default">Login</button>
-<input type="hidden" name="next" value="{{ next }}" />
+<input type="hidden" name="next" value="/" />
 </form>
 

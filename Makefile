@@ -1,7 +1,12 @@
 include _make/paths.mk
 
 run:
-	python ./codekitchen/manage.py runserver & gulp
+	# this starts both the django and node development servers
+	# http://localhost:3000    Javascript development server
+	# http://localhost:3001    Django development server
+	kill `lsof -t -i:3000` || true
+	kill `lsof -t -i:3001` || true
+	gulp & python ./codekitchen/manage.py runserver 3001
 
 run.live:
 	# make run.live ip=18.111.62.202

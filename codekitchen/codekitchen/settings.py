@@ -21,6 +21,7 @@ from shared_settings import (
     REPO_DIR,
     INSTALLED_APPS,
     MIDDLEWARE_CLASSES,
+    LOGIN_REDIRECT_URL,
     ROOT_URLCONF,
     WSGI_APPLICATION,
     LANGUAGE_CODE,
