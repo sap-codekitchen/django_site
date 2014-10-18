@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.core.urlresolvers import reverse
+from django.conf import settings
 
 class TemplateView():
     def __init__(self, template, context=None ):
@@ -22,6 +23,7 @@ class NamedView():
         self.context['pagetitle'] = name.capitalize() + ' - CodeKitchen - MIT'
         self.context['pageclass'] = name
         self.context.update(context)
+        self.context['AUTH_ROOT_URL'] = settings.AUTH_ROOT_URL
 
     def __call__(self, request, *args, **kwargs):
         self.add_navlinks()

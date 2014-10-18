@@ -1,4 +1,4 @@
-<form method="post" action="{% url 'login' %}" role="form">
+<form method="post" action="{{AUTH_ROOT_URL}}{% url 'login' %}" role="form">
 {% csrf_token %}
 <p>Login to the CodeKitchen Website</p>
 <div class="form-group">

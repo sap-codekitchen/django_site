@@ -75,7 +75,7 @@
               {% endfor %}
               {% endif %}
               {% if not user.is_authenticated %}
-                <a href="{% url "login" %}">
+              <a href="{{AUTH_ROOT_URL}}{% url "login" %}">
                   <li class="nav-item">login</li>
                 </a>
               {% else %}

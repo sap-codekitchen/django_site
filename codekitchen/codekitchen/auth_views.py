@@ -8,7 +8,7 @@ from django.contrib.sites.models import get_current_site
 
 from .auth_forms import AuthForm
 
-def login(request):
+def login(request, *args, **kwargs):
 
     redirect_to = reverse('home')
 
@@ -25,16 +25,19 @@ def login(request):
         form = AuthenticationForm(request)
 
     current_site = get_current_site(request)
+    context = {}
+    if 'extra_context' in kwargs:
+        context.update(kwargs.pop('extra_context'))
 
-    context = {
+    context.update({
         'form': form,
         'next': redirect_to,
         'site': current_site,
         'site_name': current_site.name,
-    }
+    })
 
     return  TemplateResponse(request,
-            'registration/login.html'
+            'registration/login.html', context
             )
 
 
