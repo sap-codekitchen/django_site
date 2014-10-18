@@ -14,7 +14,6 @@ from private_settings import (
     EMAIL_HOST_PASSWORD,
     EMAIL_PREFIX,
     SESSION_COOKIE_DOMAIN,
-    LOGGING,
         )
 
 from shared_private import (
@@ -36,4 +35,5 @@ from shared_settings import (
     STATICFILES_DIRS,
     TEMPLATE_DIRS,
     STATIC_ROOT,
+    LOGGING,
         )
