@@ -2,6 +2,7 @@ from private_settings import (
     DEBUG,
     TEMPLATE_DEBUG,
     ALLOWED_HOSTS,
+    ROOT_URL,
     AUTH_ROOT_URL,
     DATABASES,
     STATIC_URL,
@@ -11,6 +12,7 @@ from private_settings import (
     EMAIL_HOST_USER,
     EMAIL_HOST_PASSWORD,
     EMAIL_PREFIX,
+    SESSION_COOKIE_DOMAIN,
         )
 
 from shared_private import (

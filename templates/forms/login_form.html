@@ -1,19 +1,35 @@
-<form method="post" action="{{AUTH_ROOT_URL}}/login/" role="form">
+{% if form.errors and not form.non_field_errors and not form.this_is_the_login_form.errors %}
+<p class="errornote">
+{% if form.errors.items|length == 1 %}Please correct the error below.{% else %}Please correct the errors below.{% endif %}
+</p>
+{% endif %}
+
+{% if form.non_field_errors or form.this_is_the_login_form.errors %}
+{% for error in form.non_field_errors|add:form.this_is_the_login_form.errors %}
+<p class="errornote">
+    {{ error }}
+</p>
+{% endfor %}
+{% endif %}
+
+<form method="post" action="{{ AUTH_ROOT_URL }}/login/" role="form">
 {% csrf_token %}
 <p>Login to the CodeKitchen Website</p>
 <div class="form-group">
-  {{ form.username.errors }}
+    {% if not form.this_is_the_login_form.errors %}{{ form.username.errors }}{% endif %}
   <label for="id_username">Username</label>
   <input type="text" name="username" class="form-control" id="id_username"
   placeholder="Your username">
 </div>
 <div class="form-group">
-  {{ form.password.errors }}
+    {% if not form.this_is_the_login_form.errors %}{{ form.password.errors }}{% endif %}
   <label for="id_password">Password</label>
   <input type="password" name="password" class="form-control" id="id_password" placeholder="Password">
 </div>
 
+<input type="hidden" name="this_is_the_login_form" value="1" />
+<input type="hidden" name="next" value="{{ ROOT_URL }}" />
+
 <button type="submit" class="btn btn-default">Login</button>
-<input type="hidden" name="next" value="/" />
 </form>
 

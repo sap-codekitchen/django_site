@@ -13,6 +13,7 @@ def auth_wrap(regex, view, args_dict=None, name=None):
     if 'extra_context' not in args_dict:
         args_dict['extra_context'] = {}
     args_dict['extra_context']['AUTH_ROOT_URL'] = settings.AUTH_ROOT_URL
+    args_dict['extra_context']['ROOT_URL'] = settings.ROOT_URL
     return url(regex, view, args_dict, name=name)
 
 urlpatterns = patterns('',
@@ -38,7 +39,7 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('',
-    auth_wrap(r'^login/$', login, name='login'),
+    auth_wrap(r'^login/$', 'django.contrib.auth.views.login', name='login'),
     auth_wrap(r'^logout/$', 'django.contrib.auth.views.logout', { 'next_page': '/'},
         name='logout'),
     auth_wrap(r'^password_change/$', 'django.contrib.auth.views.password_change', name='password_change'),
