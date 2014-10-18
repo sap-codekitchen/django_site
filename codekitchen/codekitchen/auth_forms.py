@@ -9,7 +9,7 @@ class AuthForm(forms.Form):
     password = forms.CharField()
 
     error_messages = {
-        'invalid_user': "There is no user account with that email.",
+        'invalid_user': "There is no user account with that username.",
         'invalid_login': "That is not the correct password for this account"
             }
 
@@ -19,14 +19,13 @@ class AuthForm(forms.Form):
         super(AuthForm, self).__init__(*args, **kwargs)
 
     def clean(self):
-        # we treat the email as the username
-        email = self.cleaned_data.get('email')
+        username = self.cleaned_data.get('username')
         password = self.cleaned_data.get('password')
 
-        if email and password:
+        if username and password:
             # first check if the user exists
             try:
-                User.objects.get(username=email)
+                User.objects.get(username=username)
             except ObjectDoesNotExist:
                 raise forms.ValidationError(
                         self.error_messages['invalid_user'],
