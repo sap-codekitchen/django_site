@@ -24,6 +24,7 @@ class NamedView():
         self.context['pageclass'] = name
         self.context.update(context)
         self.context['AUTH_ROOT_URL'] = settings.AUTH_ROOT_URL
+        self.context['ROOT_URL'] = settings.AUTH_ROOT_URL
 
     def __call__(self, request, *args, **kwargs):
         self.add_navlinks()
@@ -34,7 +35,7 @@ class NamedView():
         for nav in ('blog', 'resources', 'events'):
             navlink = {
                     'text': nav,
-                    'url': reverse(nav)
+                    'url': settings.ROOT_URL + reverse(nav)
                     }
             if nav == self.name:
                 self.context['linktrail'] = [navlink]

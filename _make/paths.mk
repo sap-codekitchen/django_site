@@ -20,4 +20,4 @@ local_config_dir = ./${config_dir}
 remote_config_dir = ${remote_repo}/${config_dir}
 host_config_dir = ${host_repo}/${config_dir}
 
-
+remote_logs = ${remote_repo}/logs
