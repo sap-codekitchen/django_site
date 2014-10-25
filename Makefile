@@ -8,9 +8,12 @@ run:
 	kill `lsof -t -i:3001` || true
 	gulp & python ./codekitchen/manage.py runserver 3001
 
-run.live:
-	# make run.live ip=18.111.62.202
-	python ./codekitchen/manage.py runserver $(ip) & gulp
+shell:
+	python ./codekitchen/manage.py shell_plus --ipython
+
+notebook:
+	python ./codekitchen/manage.py shell_plus --notebook
+
 
 clean:
 	# this command removes all compiled python files

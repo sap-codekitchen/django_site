@@ -1,5 +1,4 @@
 from django.conf.urls import patterns, include, url
-from django.views.generic import TemplateView
 from django.contrib import admin
 from .viewclasses import NamedView
 from .auth_views import login
@@ -15,6 +14,7 @@ def auth_wrap(regex, view, args_dict=None, name=None):
     args_dict['extra_context']['AUTH_ROOT_URL'] = settings.AUTH_ROOT_URL
     args_dict['extra_context']['ROOT_URL'] = settings.ROOT_URL
     return url(regex, view, args_dict, name=name)
+
 
 urlpatterns = patterns('',
     url(r'^$', NamedView('home'), name='home'),
@@ -42,8 +42,6 @@ urlpatterns += patterns('',
     auth_wrap(r'^login/$', 'django.contrib.auth.views.login', name='login'),
     auth_wrap(r'^logout/$', 'django.contrib.auth.views.logout', { 'next_page': '/'},
         name='logout'),
-    auth_wrap(r'^password_change/$', 'django.contrib.auth.views.password_change', name='password_change'),
-    auth_wrap(r'^password_change/done/$', 'django.contrib.auth.views.password_change_done', name='password_change_done'),
     auth_wrap(r'^password_reset/$', 'django.contrib.auth.views.password_reset', name='password_reset'),
     auth_wrap(r'^password_reset/done/$', 'django.contrib.auth.views.password_reset_done', name='password_reset_done'),
     auth_wrap(r'^reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
