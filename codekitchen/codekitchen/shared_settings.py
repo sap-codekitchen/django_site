@@ -31,16 +31,20 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# directories that contain static files
-STATICFILES_DIRS = (
-        os.path.join(REPO_DIR, 'static'),
-        )
-
 # directories where templates may be found
 TEMPLATE_DIRS = (
         os.path.join(REPO_DIR, 'templates'),
         os.path.join(REPO_DIR, 'static'),
             )
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
+)
+
+# directories that contain static files
+STATICFILES_DIRS = (
+        os.path.join(REPO_DIR, 'static'),
+        )
 
 # destination to which static files will be copied
 # before deployment.

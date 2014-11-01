@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from .viewclasses import NamedView
+from .viewclasses import NamedView, LoginView
 from .auth_views import login
 from django.conf import settings
 
@@ -36,10 +36,12 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^allforms/$', NamedView('allforms'), name='allforms'),
+
+
 )
 
 urlpatterns += patterns('',
-    auth_wrap(r'^login/$', 'django.contrib.auth.views.login', name='login'),
+    auth_wrap(r'^login/$', LoginView(), name='login'),
     auth_wrap(r'^logout/$', 'django.contrib.auth.views.logout', { 'next_page': '/'},
         name='logout'),
     auth_wrap(r'^password_reset/$', 'django.contrib.auth.views.password_reset', name='password_reset'),

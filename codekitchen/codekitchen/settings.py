@@ -34,6 +34,7 @@ from shared_settings import (
     USE_TZ,
     STATICFILES_DIRS,
     TEMPLATE_DIRS,
+    TEMPLATE_CONTEXT_PROCESSORS,
     STATIC_ROOT,
     LOGGING,
         )
