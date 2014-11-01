@@ -11,13 +11,11 @@
 </div>
 {% endif %}
 <div class="form-group">
-    {% if not form.this_is_the_login_form.errors %}{{ form.username.errors }}{% endif %}
   <label for="id_username">Username</label>
   <input type="text" name="username" class="form-control" id="id_username"
-  placeholder="Your username">
+    placeholder="Your username">
 </div>
 <div class="form-group">
-    {% if not form.this_is_the_login_form.errors %}{{ form.password.errors }}{% endif %}
   <label for="id_password">Password</label>
   <input type="password" name="password" class="form-control" id="id_password" placeholder="Password">
 </div>

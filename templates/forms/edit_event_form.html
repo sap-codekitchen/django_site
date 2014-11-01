@@ -1,0 +1,61 @@
+<form method="post" action="" role="form">
+{% csrf_token %}
+
+<p>Add a CodeKitchen event</p>
+
+  <div class="form_group">
+    <label for="date">Date</label>
+    <input type="date" id="date" value="{{event.date}}" name="date">
+    <label for="start_time">Start time</label>
+    <input type="time" id="start_time" class="" value="{{event.start_time}}" name="start_time">
+    <label for="end_time">End time</label>
+    <input type="time" id="end_time" class="" value="{{event.end_time}}" name="end_time">
+  </div>
+
+  <div class="form_group">
+    <label for="title">Title</label>
+    <input type="text" id="title" class="form-control" value="{{event.title}}" name="title">
+  </div>
+
+  <div class="form_group">
+    <label for="subtitle">Subtitle</label>
+    <input type="text" id="subtitle" class="form-control" value="{{event.subtitle}}" name="subtitle">
+  </div>
+
+  <div class="form_group">
+    <label for="summary">Summary (for event listings and emails)</label> 
+    <textarea id="summary" class="form-control" rows="3" value="{{event.summary}}" name="summary">
+    </textarea>
+    <label>Format:</label>
+    <label class="radio-inline">
+        <input type="radio" name="summary_input_type" id="summary_is_markdown"
+        value="summary_is_markdown" checked> 
+        Markdown
+      </label>
+    <label class="radio-inline">
+        <input type="radio" name="summary_input_type" id="summary_is_html" value="summary_is_html"> 
+        HTML
+      </label>
+  </div>
+
+  <div class="form_group">
+    <label for="body">Body (detailed information for the event page)</label> 
+    <textarea id="body" class="form-control" rows="5" value="{{event.body}}" name="body">
+    </textarea>
+    <label>Format:</label>
+    <label class="radio-inline">
+        <input type="radio" name="body_input_type" id="body_is_markdown"
+        value="body_is_markdown" checked> 
+        Markdown
+      </label>
+    <label class="radio-inline">
+        <input type="radio" name="body_input_type" id="body_is_html" value="body_is_html"> 
+        HTML
+      </label>
+
+  </div>
+
+
+<button type="submit" class="btn btn-default">Save event</button>
+
+</form>
