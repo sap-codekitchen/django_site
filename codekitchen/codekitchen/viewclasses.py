@@ -50,7 +50,7 @@ class LoginView(NamedView):
         self.context = {}
         if request.POST:
             form = AuthenticationForm(request, data=request.POST)
-            nextpage = request.POST.get('next', '/')
+            nextpage = request.POST.get('next', settings.ROOT_URL)
             if form.is_valid():
                 user = form.get_user()
                 login(request, user)
@@ -60,7 +60,7 @@ class LoginView(NamedView):
                 self.context.update({'form': form,
                     'next': nextpage, 'errors': errors})
         else:
-            self.context['next'] = request.GET.get('next', '/')
+            self.context['next'] = request.GET.get('next', settings.ROOT_URL)
         self.add_base_context()
         self.add_navlinks()
         self.add_custom_context()
