@@ -1,13 +1,16 @@
 
 form {
     .sans;
+    overflow: auto;
 }
 label {
     .semibold;
     color: @ramp1;
 }
-input {
+input, textarea, .form-control, button {
     color: @ramp2;
+    outline: none;
+    border: 1px inset;
 }
 
 .error-message {
@@ -19,4 +22,31 @@ input {
     .radius(@em * 0.4);
 }
 
+button[type="submit"] {
+    float: right;
+    font-size: @em * 1.1;
+    padding: @vu * 0.25 @em;
+    color: @ramp8;
+    background-color: @ramp2;
+    border-color: @ramp2;
+    .thin;
+    outline: none;
+    &:hover {
+        outline: none !important;
+        color: @ramp6;
+        background-color: @ramp1;
+        border-color: @ramp1;
+    }
+    &:focus, &:active {
+        outline: none !important;
+        color: @ramp6;
+        background-color: @ramp4;
+        border-color: @ramp4;
+    }
+}
 
+.form-control:focus, input:focus {
+    border: 1px inset;
+    border-color: @ramp4;
+    box-shadow: none;
+}

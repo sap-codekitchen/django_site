@@ -2,3 +2,6 @@ django==1.6.6
 django-extensions
 fake-factory
 ipython[notebook]
+djangorestframework
+markdown
+django-filter
