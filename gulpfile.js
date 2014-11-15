@@ -1,6 +1,9 @@
 var gulp        = require('gulp'),
     concat      = require('gulp-concat'),
     gutil       = require('gulp-util'),
+    jshint      = require('gulp-jshint'),
+    browserify  =  require('browserify'),
+    source      =  require('vinyl-source-stream'),
     less        = require('gulp-less');
 
 // Include Our Plugins
@@ -18,7 +21,8 @@ gulp.task('less', function(){
 		.pipe(gulp.dest('./static/css/'))
 });
 
-vendorEntryFiles = [
+
+var vendorEntryFiles = [
 				'./node_modules/jquery/dist/jquery.min.js',
 				'./node_modules/bootstrap/dist/js/bootstrap.min.js',
 				]
@@ -34,6 +38,7 @@ gulp.task('glyphicons', function(){
 	return gulp.src('./node_modules/bootstrap/fonts/*')
 		.pipe(gulp.dest('./static/fonts/'));
 });
+
 
 gulp.task('watch', function(){
 	gulp.watch(lessFiles, ['less']);

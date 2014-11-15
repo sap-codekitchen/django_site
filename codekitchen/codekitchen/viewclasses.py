@@ -67,3 +67,4 @@ class LoginView(NamedView):
         return render( request, self.template, self.context)
 
 
+

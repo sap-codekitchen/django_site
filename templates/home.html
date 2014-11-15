@@ -2,6 +2,15 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
+
+<p>Hello {{user.username}}</p>
+
+{% include "actions.html" %}
+
+{% else %}
+
+ 
 <section id="about">
 
 <p>
@@ -53,5 +62,6 @@ In addition to tutoring and lectures, we curate an online catalogue of events, w
         
         </section>
 
+{% endif %}
   
 {% endblock content %}

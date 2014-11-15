@@ -21,6 +21,7 @@ urlpatterns = patterns('',
     url(r'^blog/$', NamedView('blog'), name='blog'),
 
     url(r'^events/$', NamedView('events'), name='events'),
+    url(r'^events/add/$', NamedView('events'), name='events_add'),
     url(r'^events/(?P<event_id>\d+)/$', NamedView('events'), name='event_by_id'),
 
     url(r'^tutorials/$', NamedView('tutorials'), name='tutorials'),
@@ -36,6 +37,8 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^allforms/$', NamedView('allforms'), name='allforms'),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+
 
 
 )
