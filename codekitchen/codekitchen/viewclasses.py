@@ -1,3 +1,5 @@
+import os
+
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
 from django.conf import settings
@@ -13,6 +15,10 @@ class NamedView():
         self.template = name + ".html"
 
     def __call__(self, request, *args, **kwargs):
+        if 'event_id' in kwargs:
+            base, ext = os.path.splitext(self.template)
+            print base, ext
+            self.template = "event_" + str(kwargs['event_id']) + ext
         self.add_base_context()
         self.add_navlinks()
         self.add_custom_context()
